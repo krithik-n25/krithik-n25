@@ -1,4 +1,4 @@
-![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Code+Like+Tea+☕;Building+AI+Systems;Learning+Deeply+Every+Day)
+<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="250"/>
 
 # 🐍 About Me:
 🎓 Second-year Computer Science student  
