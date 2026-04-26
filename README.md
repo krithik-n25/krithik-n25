@@ -1,3 +1,5 @@
+![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Code+Like+Tea+☕;Building+AI+Systems;Learning+Deeply+Every+Day)
+
 # 🐍 About Me:
 🎓 Second-year Computer Science student  
 🧠 I break complex systems into small, testable pieces before writing code  
@@ -18,7 +20,6 @@
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=vetical&theme=tokyonight)
-![Quote](https://quotes-github-readme.vercel.app/api?theme=tokyonight&quoteColor=ffffff&authorColor=00ffcc)
 ![Quote](https://quotes-github-readme.vercel.app/api?theme=tokyonight&quoteColor=ffffff&authorColor=00ffcc)
 
 ### 🔝 Top Contributed Repo
