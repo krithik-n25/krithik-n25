@@ -19,14 +19,13 @@
 <h2 align="center">📊 GitHub Stats</h2>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=krithik-n25&theme=shadow_blue&hide_border=true&count_private=true" height="250"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=krithik-n25&theme=tokyonight&hide_border=true&count_private=true" height="250"/>
   
-  <img src="https://streak-stats.demolab.com?user=krithik-n25&theme=shadow_blue&hide_border=true" height="250"/>
+  <img src="https://streak-stats.demolab.com?user=krithik-n25&theme=tokyonight&hide_border=true" height="250"/>
 </p>
 
-
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=krithik-n25&theme=shadow_blue&hide_border=true&layout=compact" height="250"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=krithik-n25&theme=tokyonight&hide_border=true&layout=compact" height="250"/>
 </p>
 
 
