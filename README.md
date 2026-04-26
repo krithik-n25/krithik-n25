@@ -18,6 +18,7 @@
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=vetical&theme=tokyonight)
+[![Quote](https://quotes-github-readme.vercel.app/api?type=vertical&theme=tokyonight)](https://github.com/piyushsuthar/github-readme-quotes)
 
 ### 🔝 Top Contributed Repo
 ![](https://github-contributor-stats.vercel.app/api?username=krithik-n25&limit=5&theme=dark&combine_all_yearly_contributions=true)
