@@ -1,5 +1,4 @@
-<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="250"/>
-
+<img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="400"/>
 # 🐍 About Me:
 🎓 Second-year Computer Science student  
 🧠 I break complex systems into small, testable pieces before writing code  
