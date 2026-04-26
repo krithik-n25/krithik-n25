@@ -27,11 +27,8 @@
 ### 🔝 Top Contributed Repo
 ![](https://github-contributor-stats.vercel.app/api?username=krithik-n25&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
----
-[![](https://visitcount.itsvg.in/api?id=krithik-n25&icon=5&color=1)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+----
 <p align="center">
   
-   ![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=Krithik%20🚀&fontSize=40&fontColor=ffffff&animation=fadeIn"/>
 </p>
