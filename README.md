@@ -2,10 +2,7 @@
   <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="400"/>
 </p>
 
-### 🐍 About Me
-
-<img src="https://readme-typing-svg.herokuapp.com?color=00F7FF&size=20&center=true&vCenter=true&width=700&lines=>+Initializing+Profile...;>+Loading+About+Me;>+System+Ready" />
-
+## 🐍 About Me
 🎓 Second-year Computer Science student  
 🧠 Decompose complex systems into small, testable components before implementation  
 🌱 Currently studying machine learning through first-principles and from-scratch builds  
