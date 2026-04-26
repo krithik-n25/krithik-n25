@@ -1,4 +1,12 @@
 <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="400"/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,100:16213e&height=200&section=header&text=Krithik%20☕&fontSize=40&fontColor=ffffff"/>
+
+![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning)
+
+<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="200"/>
+
+
 # 🐍 About Me:
 🎓 Second-year Computer Science student  
 🧠 I break complex systems into small, testable pieces before writing code  
