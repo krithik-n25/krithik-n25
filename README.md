@@ -20,11 +20,13 @@
 ![](https://nirzak-streak-stats.vercel.app/?user=krithik-n25&theme=shadow_blue&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=krithik-n25&theme=shadow_blue&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning" />
+</p>
+
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=vetical&theme=tokyonight)
 ![Quote](https://quotes-github-readme.vercel.app/api?theme=tokyonight&quoteColor=ffffff&authorColor=00ffcc)
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning" />
-</p>
----
+
+----
