@@ -32,5 +32,6 @@
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 <p align="center">
+  
    ![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning)
 </p>
