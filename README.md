@@ -1,11 +1,5 @@
 <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="400"/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,100:16213e&height=200&section=header&text=Krithik%20☕&fontSize=40&fontColor=ffffff"/>
-
-![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning)
-
-<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="200"/>
-
 
 # 🐍 About Me:
 🎓 Second-year Computer Science student  
@@ -14,6 +8,8 @@
 🤝 Looking to collaborate on ML or data-driven projects  
 ⚙️ I believe good software is readable first, fast second  
 ⚡ I work in deep-focus bursts and get obsessed with problems until I understand them
+
+![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00F7FF&size=22&center=true&vCenter=true&width=600&lines=Brewing+Ideas+Like+Tea+☕;Building+AI+Systems;Focused+on+Deep+Learning)
 
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/krithik.n) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krithik-naidu-579400350/) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@nadiukrithik37) [![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/mikeyyy_off_2007) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/@heyykrithik) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:krithiknaidu44@gmail.com) 
