@@ -31,7 +31,9 @@
 
 <hr>
 
-[![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=anuraghazra)](https://github.com/stats-organization/github-stats-extended)
+## 🚀 Stats
+
+[![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=krithik-n25)](https://github.com/stats-organization/github-stats-extended)
 
 <hr>
 
