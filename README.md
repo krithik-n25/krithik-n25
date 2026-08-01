@@ -23,6 +23,7 @@
 </p>
 
 <hr>
+## 🐍 My Contributions
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ChijiokeOkorji/ChijiokeOkorji/output/github-contribution-grid-snake-dark.svg">
