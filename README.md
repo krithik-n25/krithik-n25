@@ -33,7 +33,8 @@
 
 ## 🚀 Stats
 
-[![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=krithik-n25)](https://github.com/stats-organization/github-stats-extended)
+[![GitHub Stats](https://github-stats-extended.vercel.app/api?username=krithik-n25&rank_icon=github&show_icons=true&include_all_commits=true&theme=nightowl)](https://github-stats-extended.vercel.app/api?username=krithik-n25&rank_icon=github&show_icons=true&include_all_commits=true&theme=nightowl)
+&nbps
 [![GitHub Stats](https://github-stats-extended.vercel.app/api/top-langs?username=krithik-n25&layout=donut&langs_count=3&theme=nightowl)](https://github-stats-extended.vercel.app/api/top-langs?username=krithik-n25&layout=donut&langs_count=3&theme=nightowl)
 
 <hr>
