@@ -14,11 +14,13 @@ INFO = [
     ("Role", "CSE Student"),
     ("Location", "Ahmedabad, Gujarat"),
     ("Education", "B.Tech CSE"),
+    None,
     ("Language", "Python, JavaScript"),
     ("Stack", "FastAPI, Django, React, Sqllite3"),
     ("Research", "Edge AI / TinyML review paper"),
     ("Status", "Open to collaborate"),
 ]
+divider()
 FOCUS = "ML . Backend Engg . Applied AI . Agentic AI"
 CONTACT = [
     ("Mail", "nadiukrithik37@gmail.com"),
@@ -62,7 +64,12 @@ def get_stats():
     except Exception as e:
         print("stats failed:", e)
         return dict(Repos="n/a", Stars="n/a", Commits="n/a", Followers="n/a")
-
+        
+def divider():
+        nonlocal y
+        y += 8
+        a(f'<line x1="{kx}" y1="{y - 20}" x2="{vx}" y2="{y - 20}" stroke="{LINE}"/>')
+    
 def uptime():
     t = date.today()
     y, m, d = t.year - START.year, t.month - START.month, t.day - START.day
@@ -211,7 +218,7 @@ def build():
       '</linearGradient></defs>')
     a(f'<rect width="{W}" height="{H}" rx="12" fill="{BG}" stroke="#1e2a3f"/>')
 
-    for cx, c in ((28, "#ff5f57"), (48, "#febc2e"), (68, "#28c840")):
+    for cx, c in ((28, "#ff5f57"), (48, "#febc2e"), (68, "8c840")):
         a(f'<circle cx="{cx}" cy="26" r="6" fill="{c}"/>')
     a(f'<text x="{W // 2}" y="30" font-size="11" fill="{DIMT}" text-anchor="middle">profile.sh --live</text>')
 
@@ -276,8 +283,11 @@ def build():
         y += 25
 
     row("Uptime", uptime(), AMBER)
-    for k, v in INFO:
-        row(k, v)
+    for item in INFO:
+        if item is None:
+            divider()
+        else:
+            row(*item)
     row("Focus", FOCUS)
     y += 10
     for k, v in CONTACT:
