@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+<defs><linearGradient id="glow" x1="0" x2="1"><stop offset="0" stop-color="#4fd1c5" stop-opacity="0"/><stop offset="0.5" stop-color="#4fd1c5"/><stop offset="1" stop-color="#4fd1c5" stop-opacity="0"/></linearGradient></defs>
+<rect width="900" height="540" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="40" y="40" width="350" height="460" fill="#0a0e13" stroke="#1f2a33"/>
+<text x="50" y="94.7" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                     .:-=+=:---:..                              </text>
+<text x="50" y="105.0" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                   :=+++=+-====+++-.                            </text>
+<text x="50" y="115.3" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                 -**+=----::.::-:-=-.                           </text>
+<text x="50" y="125.6" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                -*-::..:-:.....  ..::                           </text>
+<text x="50" y="135.9" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">               .++-...--------::.  ...                          </text>
+<text x="50" y="146.2" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">               ::--.:=*#*#####**+-.  .                          </text>
+<text x="50" y="156.6" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">               .-:.:+*##%%#%##****=.                            </text>
+<text x="50" y="166.9" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                :: -##+++*##+===+**-=+.                         </text>
+<text x="50" y="177.2" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                 ==*%=---=##+==+*##+*#-                         </text>
+<text x="50" y="187.5" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                 +*#@@%#*#@@#*##%%#***                          </text>
+<text x="50" y="197.8" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                 .#%%%%#*#*#****###*+.                          </text>
+<text x="50" y="208.1" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                  :****++*+***+=*##-                            </text>
+<text x="50" y="218.4" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                    .+**+=+*****##*-                            </text>
+<text x="50" y="228.8" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                      *************+---                         </text>
+<text x="50" y="239.1" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                     *++******+++*#*:=%+.                       </text>
+<text x="50" y="249.4" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">                    =@-**++++******+=%%%%*+=:.                  </text>
+<text x="50" y="259.7" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">               .:=#%@@#%#********+==#%%%%%%%%%##+=-:.           </text>
+<text x="50" y="270.0" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">           .-+#@@@@@@%%%%#******+++*==#%%%%%%%%%%@@@%#+:        </text>
+<text x="50" y="280.3" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">        :+%@@@@@@@@@%-=+*#%#*********+*#%%%%%%%%%%%%%@@%+       </text>
+<text x="50" y="290.6" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">       +@@@@@@@@@@@@%***++*%%#*##*###%%%%%%%%%%%%%%#%%%%%*      </text>
+<text x="50" y="300.9" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">      +@@@@@@@@@@@@@@@%%##**%%######%%%%%%%%%%%%%%##%%%%%%+     </text>
+<text x="50" y="311.2" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">     :@%%@@@@@@@@@@@@@@@@@%#%%#####%%%%%%%%%%%%%%%*##%%%%%%:    </text>
+<text x="50" y="321.6" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">     #%@#@@@@@@@@@@@@@@@@@@%%%####%%%%%%%%%%%%%#%%##*%%%%%%#.   </text>
+<text x="50" y="331.9" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">    .##@*%@@@@@@@@@@@@@@%%@@%%###%##########%%%%%%#**%%#%%%%-   </text>
+<text x="50" y="342.2" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">    :#*##*%%@@@@@@@@@@@@@@%%%##########%%%%%%%%%%%++%%##%%%%*   </text>
+<text x="50" y="352.5" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">    =%**#+*##%%@@@@@@@@@@@%%####%%%%%##%%%%%%%%%%%**%%##%%%%%:  </text>
+<text x="50" y="362.8" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">    #@#***++###%@@@@@@%%%%##%%##%%%%%%%%%%%%%%%%%*=*%##%%%%%%+  </text>
+<text x="50" y="373.1" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">   .@@##**+=-+###%@%%%######%%%###%%%%%%%%%%%%%%%+=####%%%%%%#. </text>
+<text x="50" y="383.4" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">   =@@%#***+-:+*#*%%######%#%%%%###%%##%%%%%%%%%%=+###%%%%%%%%= </text>
+<text x="50" y="393.8" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">  .%@#%##***=-+**#%#######%#%%%%%##%%%%%%%%%%%%%#=+*##%%%%%%%%# </text>
+<text x="50" y="404.1" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">  :@%%#****+==###@%######%%#%#%%%%####%%%%%%%%%%#+-+*%%%%%%%%%%*</text>
+<text x="50" y="414.4" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">  =@%###***+-:%@@%######@@%#%%%%%%%%####%%%%%%%%##-+#%##%%%#%%%%</text>
+<text x="50" y="424.7" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">  #%####**+=::*@@######@@%##%%%%%%%%%####%%%%%%%##--*#%%%##%%%%%</text>
+<text x="50" y="435.0" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve"> .%##****++=:-+#%####%@@%%##%%%#%%%%%%####%%%%%%%#--++*****####%</text>
+<text x="50" y="445.3" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve"> .#%%##**++=:=#*%@@@@@@%%%%#%%%##%%%%%%%##%%%%%%%#+:-=+**#######</text>
+<text x="50" y="455.6" font-size="8.59" fill="#8b949e" textLength="330" lengthAdjust="spacing" xml:space="preserve">  *@@@@%#*+=-*%##%@@@@%%%%%%%##%%#%%%%%%%%#%%%%%%#+-=+**##%#%#%#</text>
+<rect x="40" y="417" width="350" height="2" fill="#4fd1c5" opacity="0.7"/>
+<path d="M52 40 L40 40 L40 52" stroke="#4fd1c5" fill="none"/>
+<path d="M378 40 L390 40 L390 52" stroke="#4fd1c5" fill="none"/>
+<path d="M52 500 L40 500 L40 488" stroke="#4fd1c5" fill="none"/>
+<path d="M378 500 L390 500 L390 488" stroke="#4fd1c5" fill="none"/>
+<rect x="415" y="40" width="460" height="460" rx="8" fill="none" stroke="#21262d"/>
+<text x="430" y="74" font-size="15" fill="#4fd1c5">krithik-n25@github</text>
+<line x1="601.0" y1="69" x2="860" y2="69" stroke="#4fd1c5" stroke-width="1"/>
+<text x="430" y="100" font-size="15" fill="#c9d1d9">Uptime</text>
+<text x="860" y="100" font-size="15" fill="#f0883e" text-anchor="end">2 years, 1 month, 19 days</text>
+<line x1="493" y1="97" x2="617" y2="97" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="122" font-size="15" fill="#c9d1d9">Role</text>
+<text x="860" y="122" font-size="15" fill="#c9d1d9" text-anchor="end">CSE Student</text>
+<line x1="475" y1="119" x2="743" y2="119" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="144" font-size="15" fill="#c9d1d9">Education</text>
+<text x="860" y="144" font-size="15" fill="#c9d1d9" text-anchor="end">B.Tech CSE</text>
+<line x1="520" y1="141" x2="752" y2="141" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="166" font-size="15" fill="#c9d1d9">Location</text>
+<text x="860" y="166" font-size="15" fill="#c9d1d9" text-anchor="end">Ahmedabad/Gujarat</text>
+<line x1="511" y1="163" x2="689" y2="163" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="188" font-size="15" fill="#c9d1d9">Language</text>
+<text x="860" y="188" font-size="15" fill="#c9d1d9" text-anchor="end">Python ,Javascript</text>
+<line x1="511" y1="185" x2="680" y2="185" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="218" font-size="15" fill="#4fd1c5">Focus</text>
+<line x1="484.0" y1="213" x2="860" y2="213" stroke="#4fd1c5" stroke-width="1"/>
+<text x="430" y="244" font-size="15" fill="#c9d1d9">ML. Backend Engg. Applied AI. Agentic AI</text>
+<text x="430" y="276" font-size="15" fill="#4fd1c5">Contact</text>
+<line x1="502.0" y1="271" x2="860" y2="271" stroke="#4fd1c5" stroke-width="1"/>
+<text x="430" y="302" font-size="15" fill="#c9d1d9">GitHub</text>
+<text x="860" y="302" font-size="15" fill="#c9d1d9" text-anchor="end">github.com/krithik-n25</text>
+<line x1="493" y1="299" x2="644" y2="299" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="324" font-size="15" fill="#c9d1d9">LinkedIn</text>
+<text x="860" y="324" font-size="15" fill="#c9d1d9" text-anchor="end">linkedin.com/in/krithik-naidu-579400350/</text>
+<text x="430" y="346" font-size="15" fill="#c9d1d9">Email</text>
+<text x="860" y="346" font-size="15" fill="#c9d1d9" text-anchor="end">nadiukrithik37@gmail.com</text>
+<line x1="484" y1="343" x2="626" y2="343" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="376" font-size="15" fill="#4fd1c5">GitHub Stats</text>
+<line x1="547.0" y1="371" x2="860" y2="371" stroke="#4fd1c5" stroke-width="1"/>
+<text x="430" y="402" font-size="15" fill="#c9d1d9">Repos</text>
+<text x="860" y="402" font-size="15" fill="#f0883e" text-anchor="end">24</text>
+<line x1="484" y1="399" x2="824" y2="399" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="424" font-size="15" fill="#c9d1d9">Stars</text>
+<text x="860" y="424" font-size="15" fill="#f0883e" text-anchor="end">14</text>
+<line x1="484" y1="421" x2="824" y2="421" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="446" font-size="15" fill="#c9d1d9">Commits</text>
+<text x="860" y="446" font-size="15" fill="#f0883e" text-anchor="end">212</text>
+<line x1="502" y1="443" x2="815" y2="443" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<text x="430" y="468" font-size="15" fill="#c9d1d9">Followers</text>
+<text x="860" y="468" font-size="15" fill="#f0883e" text-anchor="end">3</text>
+<line x1="520" y1="465" x2="833" y2="465" stroke="#8b949e" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>
+<rect x="40" y="516" width="820" height="2" fill="url(#glow)"/>
+</svg>
