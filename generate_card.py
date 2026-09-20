@@ -17,7 +17,7 @@ INFO = [
     ("Language", "Python, JavaScript"),
     ("Stack", "FastAPI, Django, React, Sqllite3"),
     ("Research", "Edge AI / TinyML review paper"),
-    ("Status", "Open to collaborate")
+    ("Status", "Open to collaborate"),
 ]
 FOCUS = "ML . Backend Engg . Applied AI . Agentic AI"
 CONTACT = [
