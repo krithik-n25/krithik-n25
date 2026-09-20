@@ -4,7 +4,7 @@ from PIL import Image, ImageOps, ImageDraw, ImageFilter
 
 # ---------- edit this block ----------
 USERNAME = "krithik-n25"
-START = date(2024, 5, 10)          # uptime start, pick any date
+START = date(2024, 5, 12)         # uptime start, pick any date
 PHOTO = "photo.png"               # crop tight on your face
 INVERT = False                    # set True if your photo background is light
 CITY, TZ = "Ahmedabad", "UTC+5:30"
@@ -16,7 +16,7 @@ INFO = [
     ("Education", "B.Tech CSE"),
     None,
     ("Language", "Python, JavaScript"),
-    ("Stack", "FastAPI, Django, React, Sqllite3"),
+    ("Stack", "FastAPI, Django, React, SQLite3"),
     ("Research", "Edge AI / TinyML review paper"),
     ("Status", "Open to collaborate"),
 ]
@@ -63,12 +63,7 @@ def get_stats():
     except Exception as e:
         print("stats failed:", e)
         return dict(Repos="n/a", Stars="n/a", Commits="n/a", Followers="n/a")
-        
-def divider():
-        nonlocal y
-        y += 8
-        a(f'<line x1="{kx}" y1="{y - 20}" x2="{vx}" y2="{y - 20}" stroke="{LINE}"/>')
-    
+
 def uptime():
     t = date.today()
     y, m, d = t.year - START.year, t.month - START.month, t.day - START.day
@@ -217,7 +212,7 @@ def build():
       '</linearGradient></defs>')
     a(f'<rect width="{W}" height="{H}" rx="12" fill="{BG}" stroke="#1e2a3f"/>')
 
-    for cx, c in ((28, "#ff5f57"), (48, "#febc2e"), (68, "8c840")):
+    for cx, c in ((28, "#ff5f57"), (48, "#febc2e"), (68, "#28c840")):
         a(f'<circle cx="{cx}" cy="26" r="6" fill="{c}"/>')
     a(f'<text x="{W // 2}" y="30" font-size="11" fill="{DIMT}" text-anchor="middle">profile.sh --live</text>')
 
@@ -280,6 +275,11 @@ def build():
         if de > ds:
             a(f'<line x1="{ds:.0f}" y1="{y - 3}" x2="{de:.0f}" y2="{y - 3}" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>')
         y += 25
+
+    def divider():
+        nonlocal y
+        y += 8
+        a(f'<line x1="{kx}" y1="{y - 20}" x2="{vx}" y2="{y - 20}" stroke="{LINE}"/>')
 
     row("Uptime", uptime(), AMBER)
     for item in INFO:
