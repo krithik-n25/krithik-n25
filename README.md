@@ -2,23 +2,8 @@
   <img src="card.svg" width="100%">
 </p>
 
-## 🐍 About Me
-🎓 Second-year Computer Science student  
-🧠 Decompose complex systems into small, testable components before implementation  
-🌱 Currently studying machine learning through first-principles and from-scratch builds  
-🤝 Open to collaborating on ML and data-driven systems  
-⚙️ Prioritize clarity and readability over premature optimization  
-⚡ Work in deep-focus cycles with an emphasis on complete understanding  
-
-## 🌐 Socials:
-
-
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/krithik.n)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krithik-naidu-579400350/)
-[![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@nadiukrithik37)
-[![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/mikeyyy_off_2007)
-[![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/@heyykrithik)
-[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:krithiknaidu44@gmail.com)
+## 📝 About Me
+I'm a Computer Science student building practical AI systems, with a focus on agentic AI, applied AI, and ML backend engineering. I've written a review paper, Edge AI for Resource-Constrained Devices, covering TinyML and on-device inference. I favor clear, testable engineering and I'm open to collaborating on ML and data-driven projects.  
 
 ## 🛠️ Languages and Tools
 
@@ -37,7 +22,7 @@
 
 <hr>
 
-## 🐍 My Contributions
+## 🤝 My Contributions
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ChijiokeOkorji/ChijiokeOkorji/output/github-contribution-grid-snake-dark.svg">
