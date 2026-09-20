@@ -4,7 +4,7 @@ from PIL import Image, ImageOps, ImageDraw, ImageFilter
 
 # ---------- edit this block ----------
 USERNAME = "krithik-n25"
-START = date(2024, 8, 1)          # uptime start, pick any date
+START = date(2024, 5, 10)          # uptime start, pick any date
 PHOTO = "photo.png"               # crop tight on your face
 INVERT = False                    # set True if your photo background is light
 CITY, TZ = "Ahmedabad", "UTC+5:30"
