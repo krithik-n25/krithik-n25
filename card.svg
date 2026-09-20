@@ -87,31 +87,19 @@
 <text x="862" y="243" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">Python, JavaScript</text>
 <line x1="447" y1="240" x2="710" y2="240" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
 <text x="374" y="268" font-size="12" fill="#6b7a90">Focus</text>
-<text x="862" y="268" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">ML . Backend . Applied AI . Agentic AI</text>
-<line x1="424" y1="265" x2="552" y2="265" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
+<text x="862" y="268" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">ML . Backend Engg . Applied AI . Agentic AI</text>
+<line x1="424" y1="265" x2="512" y2="265" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
 <text x="374" y="303" font-size="12" fill="#6b7a90">Grid.Mail</text>
 <text x="862" y="303" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">nadiukrithik37@gmail.com</text>
 <line x1="455" y1="300" x2="662" y2="300" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
 <text x="374" y="328" font-size="12" fill="#6b7a90">Grid.LinkedIn</text>
-<text x="862" y="328" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">/in/krithik-naidu-579400350</text>
-<line x1="487" y1="325" x2="639" y2="325" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
+<text x="862" y="328" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">linkedin.com/in/krithik-naidu-579400350/</text>
+<line x1="487" y1="325" x2="536" y2="325" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
 <text x="374" y="353" font-size="12" fill="#6b7a90">Grid.GitHub</text>
 <text x="862" y="353" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">krithik-n25</text>
 <line x1="471" y1="350" x2="765" y2="350" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
-<text x="374" y="388" font-size="12" fill="#6b7a90">Git.Repos</text>
-<text x="862" y="388" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="end">24</text>
-<line x1="455" y1="385" x2="836" y2="385" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
-<text x="374" y="413" font-size="12" fill="#6b7a90">Git.Stars</text>
-<text x="862" y="413" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="end">14</text>
-<line x1="455" y1="410" x2="836" y2="410" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
-<text x="374" y="438" font-size="12" fill="#6b7a90">Git.Commits</text>
-<text x="862" y="438" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="end">219</text>
-<line x1="471" y1="435" x2="828" y2="435" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
-<text x="374" y="463" font-size="12" fill="#6b7a90">Git.Followers</text>
-<text x="862" y="463" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="end">3</text>
-<line x1="487" y1="460" x2="844" y2="460" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
 <line x1="372" y1="506" x2="864" y2="506" stroke="#1c2940"/>
 <circle class="live" cx="377" cy="521" r="2.5" fill="#34d399"/>
 <text x="386" y="524" font-size="9" fill="#34d399">ALL SYSTEMS NOMINAL</text>
-<text x="862" y="524" font-size="9" fill="#6b7a90" text-anchor="end">SYNC 20 Sep 06:52 UTC · UTC+5:30 · AHMEDABAD NODE</text>
+<text x="862" y="524" font-size="9" fill="#6b7a90" text-anchor="end">SYNC 20 Sep 06:57 UTC · UTC+5:30 · AHMEDABAD NODE</text>
 </svg>
