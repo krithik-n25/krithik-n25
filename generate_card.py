@@ -16,10 +16,10 @@ INFO = [
     ("Education", "B.Tech CSE"),
     ("Language", "Python, JavaScript"),
 ]
-FOCUS = "ML . Backend . Applied AI . Agentic AI"
+FOCUS = "ML . Backend Engg . Applied AI . Agentic AI"
 CONTACT = [
     ("Mail", "nadiukrithik37@gmail.com"),
-    ("LinkedIn", "/in/krithik-naidu-579400350"),
+    ("LinkedIn", "linkedin.com/in/krithik-naidu-579400350/"),
     ("GitHub", USERNAME),
 ]
 # Drop any extra pictures (png or jpg) into a folder called visuals/ and they join the cycle.
@@ -279,9 +279,6 @@ def build():
     y += 10
     for k, v in CONTACT:
         row(f"Grid.{k}", v)
-    y += 10
-    for k in ("Repos", "Stars", "Commits", "Followers"):
-        row(f"Git.{k}", stats[k], AMBER)
 
     fy = ry + rh - 30
     a(f'<line x1="{rx + 12}" y1="{fy}" x2="{rx + rw - 12}" y2="{fy}" stroke="{LINE}"/>')
