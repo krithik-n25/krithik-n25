@@ -110,5 +110,5 @@
 <line x1="372" y1="506" x2="864" y2="506" stroke="#1c2940"/>
 <circle class="live" cx="377" cy="521" r="2.5" fill="#34d399"/>
 <text x="386" y="524" font-size="9" fill="#34d399">ALL SYSTEMS NOMINAL</text>
-<text x="862" y="524" font-size="9" fill="#6b7a90" text-anchor="end">SYNC 20 Sep 07:16 UTC · UTC+5:30 · AHMEDABAD NODE</text>
+<text x="862" y="524" font-size="9" fill="#6b7a90" text-anchor="end">SYNC 20 Sep 07:19 UTC · UTC+5:30 · AHMEDABAD NODE</text>
 </svg>
