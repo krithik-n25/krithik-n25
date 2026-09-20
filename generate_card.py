@@ -1,6 +1,6 @@
-import os, json, html, random, urllib.request
+import os, glob, json, html, math, random, urllib.request
 from datetime import date, datetime, timezone
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageDraw, ImageFilter
 
 # ---------- edit this block ----------
 USERNAME = "krithik-n25"
@@ -8,6 +8,7 @@ START = date(2024, 8, 1)          # uptime start, pick any date
 PHOTO = "photo.png"               # crop tight on your face
 INVERT = False                    # set True if your photo background is light
 CITY, TZ = "Ahmedabad", "UTC+5:30"
+SHAPES = ["code", "chip", "neural", "globe"]   # built in visuals that cycle after your photo
 INFO = [
     ("Subject", "Krithik Naidu"),
     ("Role", "CSE Student"),
@@ -21,6 +22,7 @@ CONTACT = [
     ("LinkedIn", "/in/krithik-naidu-579400350"),
     ("GitHub", USERNAME),
 ]
+# Drop any extra pictures (png or jpg) into a folder called visuals/ and they join the cycle.
 # --------------------------------------
 
 W, H = 900, 560
@@ -32,6 +34,7 @@ TOKEN = os.environ.get("GITHUB_TOKEN")
 NOW = datetime.now(timezone.utc)
 
 COLS, ROWS, PITCH = 100, 115, 3   # dot grid, 300 x 345 px
+SLOT, FADE = 5.0, 0.6             # seconds each visual stays, and crossfade time
 
 def api(path):
     headers = {"Accept": "application/vnd.github+json", "User-Agent": "profile-card"}
@@ -69,21 +72,84 @@ def uptime():
     s = lambda n, w: f"{n} {w}{'' if n == 1 else 's'}"
     return f"{s(y, 'year')}, {s(m, 'month')}, {s(d, 'day')}"
 
-def dither_points(seed):
-    """Floyd-Steinberg dithering with serpentine scan. Bright pixels become dots.
-    A small random threshold jitter, seeded per run, makes every regeneration differ."""
-    img = Image.open(PHOTO).convert("L")
+# ---------- visuals ----------
+CW, CH = 400, 460
+STROKE = 175   # below 255 so dithering gives a stippled look instead of solid lines
+
+def canvas():
+    im = Image.new("L", (CW, CH), 0)
+    return im, ImageDraw.Draw(im)
+
+def finish(im):
+    return im.filter(ImageFilter.GaussianBlur(2.2))
+
+def shape_code():
+    im, d = canvas()
+    d.line([(150, 150), (70, 230), (150, 310)], fill=STROKE, width=24, joint="curve")
+    d.line([(250, 150), (330, 230), (250, 310)], fill=STROKE, width=24, joint="curve")
+    d.line([(228, 120), (172, 340)], fill=STROKE, width=24)
+    return finish(im)
+
+def shape_chip():
+    im, d = canvas()
+    d.rectangle((115, 145, 285, 315), outline=STROKE, width=16)
+    d.rectangle((160, 190, 240, 270), fill=STROKE)
+    for i in range(5):
+        p = 135 + i * 32
+        d.line([(p, 100), (p, 145)], fill=STROKE, width=10)
+        d.line([(p, 315), (p, 360)], fill=STROKE, width=10)
+        d.line([(70, p + 10), (115, p + 10)], fill=STROKE, width=10)
+        d.line([(285, p + 10), (330, p + 10)], fill=STROKE, width=10)
+    return finish(im)
+
+def shape_neural():
+    im, d = canvas()
+    layers = [(80, 4), (200, 5), (320, 4)]
+    nodes = []
+    for x, n in layers:
+        ys = [130 + (330 - 130) * i / (n - 1) for i in range(n)]
+        nodes.append([(x, y) for y in ys])
+    for a, b in zip(nodes, nodes[1:]):
+        for p in a:
+            for q in b:
+                d.line([p, q], fill=95, width=3)
+    for layer in nodes:
+        for x, y in layer:
+            d.ellipse((x - 17, y - 17, x + 17, y + 17), fill=255)
+    return finish(im)
+
+def shape_globe():
+    im, d = canvas()
+    cx, cy, r = 200, 230, 130
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=STROKE, width=10)
+    for k in (0.38, 0.72):
+        d.ellipse((cx - r * k, cy - r, cx + r * k, cy + r), outline=STROKE, width=7)
+    d.line([(cx, cy - r), (cx, cy + r)], fill=STROKE, width=7)
+    for dy in (-70, 0, 70):
+        half = math.sqrt(r * r - dy * dy)
+        d.line([(cx - half, cy + dy), (cx + half, cy + dy)], fill=STROKE, width=7)
+    return finish(im)
+
+BUILTIN = {"code": shape_code, "chip": shape_chip, "neural": shape_neural, "globe": shape_globe}
+
+def load_photo(path):
+    img = Image.open(path).convert("L")
     img = ImageOps.autocontrast(img, cutoff=2)
     w, h = img.size
-    target = ROWS / COLS
+    target = CH / CW
     ch = min(h, int(w * target))
     cw = int(ch / target)
     left, top = (w - cw) // 2, max(0, (h - ch) // 4)
-    img = img.crop((left, top, left + cw, top + ch)).resize((COLS, ROWS), Image.LANCZOS)
-    px = [[float(img.getpixel((x, y))) for x in range(COLS)] for y in range(ROWS)]
+    img = img.crop((left, top, left + cw, top + ch))
     if INVERT:
-        px = [[255.0 - v for v in row] for row in px]
-    rng = random.Random(seed)
+        img = ImageOps.invert(img)
+    return img
+
+def dither_points(img, rng):
+    """Floyd-Steinberg dithering with a serpentine scan. Bright pixels become dots.
+    A small random threshold jitter, different every run, keeps the dots from repeating."""
+    img = img.resize((COLS, ROWS), Image.LANCZOS)
+    px = [[float(img.getpixel((x, y))) for x in range(COLS)] for y in range(ROWS)]
     pts = []
     for y in range(ROWS):
         forward = y % 2 == 0
@@ -98,26 +164,43 @@ def dither_points(seed):
                 xx, yy = x + dx, y + dy
                 if 0 <= xx < COLS and 0 <= yy < ROWS:
                     px[yy][xx] += err * f
-    return pts, rng
+    return pts
+
+def collect_visuals(rng):
+    items = []
+    if os.path.exists(PHOTO):
+        items.append(("PORTRAIT", load_photo(PHOTO)))
+    others = [(n.upper(), BUILTIN[n]()) for n in SHAPES if n in BUILTIN]
+    for f in sorted(glob.glob("visuals/*.png") + glob.glob("visuals/*.jpg") + glob.glob("visuals/*.jpeg")):
+        name = os.path.splitext(os.path.basename(f))[0].upper()[:14]
+        others.append((name, load_photo(f)))
+    rng.shuffle(others)     # order changes every run
+    return items + others
 
 def esc(s):
     return html.escape(str(s), quote=False)
 
 def build():
     stats = get_stats()
-    seed = int(NOW.strftime("%Y%m%d%H"))
-    pts, rng = dither_points(seed)
+    rng = random.Random(int(NOW.strftime("%Y%m%d%H")))
+    visuals = collect_visuals(rng)
+    N = len(visuals)
+    total = N * SLOT
+    slot_pct = SLOT / total * 100
+    fade_pct = FADE / total * 100
+
     o = []
     a = o.append
-
     a(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{MONO}">')
     a(f'''<style>
+.slide{{opacity:0;animation:show {total:.1f}s linear infinite both}}
+@keyframes show{{0%{{opacity:0}}{fade_pct:.2f}%{{opacity:1}}{slot_pct:.2f}%{{opacity:1}}{slot_pct + fade_pct:.2f}%{{opacity:0}}100%{{opacity:0}}}}
 .g0,.g1,.g2,.g3{{animation:tw 3.4s ease-in-out infinite}}
 .g1{{animation-delay:.85s}}.g2{{animation-delay:1.7s}}.g3{{animation-delay:2.55s}}
 @keyframes tw{{0%,100%{{opacity:.95}}50%{{opacity:.22}}}}
 .live{{animation:blink 1.3s ease-in-out infinite}}
 @keyframes blink{{0%,100%{{opacity:1}}50%{{opacity:.15}}}}
-.sweep{{animation:sweep 5s linear infinite}}
+.sweep{{animation:sweep {SLOT}s linear infinite}}
 @keyframes sweep{{0%{{transform:translateY(-16px);opacity:0}}12%{{opacity:1}}88%{{opacity:1}}100%{{transform:translateY({ROWS * PITCH}px);opacity:0}}}}
 </style>''')
     a('<defs><linearGradient id="trail" x1="0" y1="0" x2="0" y2="1">'
@@ -125,7 +208,6 @@ def build():
       '</linearGradient></defs>')
     a(f'<rect width="{W}" height="{H}" rx="12" fill="{BG}" stroke="#1e2a3f"/>')
 
-    # title bar
     for cx, c in ((28, "#ff5f57"), (48, "#febc2e"), (68, "#28c840")):
         a(f'<circle cx="{cx}" cy="26" r="6" fill="{c}"/>')
     a(f'<text x="{W // 2}" y="30" font-size="11" fill="{DIMT}" text-anchor="middle">profile.sh --live</text>')
@@ -140,11 +222,22 @@ def build():
     ax0, ay0, ax1, ay1 = lx + 10, ly + 44, lx + lw - 10, ly + lh - 30
     dx0 = ax0
     dy0 = ay0 + ((ay1 - ay0) - ROWS * PITCH) // 2
-    groups = [[], [], [], []]
-    for x, y in pts:
-        groups[rng.randrange(4)].append(f"M{dx0 + x * PITCH} {dy0 + y * PITCH}h1.8v1.8h-1.8z")
-    for i, g in enumerate(groups):
-        a(f'<path class="g{i}" fill="{DOT}" d="{"".join(g)}"/>')
+
+    total_pts = 0
+    for i, (name, img) in enumerate(visuals):
+        pts = dither_points(img, rng)
+        total_pts += len(pts)
+        groups = [[], [], [], []]
+        for x, y in pts:
+            groups[rng.randrange(4)].append(f"M{dx0 + x * PITCH} {dy0 + y * PITCH}h1.8v1.8h-1.8z")
+        delay = i * SLOT
+        a(f'<g class="slide" style="animation-delay:{delay:.1f}s">')
+        for j, g in enumerate(groups):
+            a(f'<path class="g{j}" fill="{DOT}" d="{"".join(g)}"/>')
+        a('</g>')
+        a(f'<text class="slide" style="animation-delay:{delay:.1f}s" x="{lx + 12}" y="{ly + lh - 12}" '
+          f'font-size="9" fill="{DIMT}">{esc(name)} · PTS {len(pts)} · FS/SERPENTINE</text>')
+
     a(f'<clipPath id="clip"><rect x="{ax0}" y="{dy0}" width="{COLS * PITCH}" height="{ROWS * PITCH}"/></clipPath>')
     a(f'<g clip-path="url(#clip)"><g class="sweep">'
       f'<rect x="{ax0}" y="{dy0 - 14}" width="{COLS * PITCH}" height="14" fill="url(#trail)"/>'
@@ -152,7 +245,6 @@ def build():
       f'</g></g>')
     for cx, cy, sx, sy in ((ax0, ay0, 1, 1), (ax1, ay0, -1, 1), (ax0, ay1, 1, -1), (ax1, ay1, -1, -1)):
         a(f'<path d="M{cx + 12 * sx} {cy}L{cx} {cy}L{cx} {cy + 12 * sy}" stroke="{CYAN}" stroke-opacity="0.6" fill="none"/>')
-    a(f'<text x="{lx + 12}" y="{ly + lh - 12}" font-size="9" fill="{DIMT}">PTS {len(pts)} · FS/SERPENTINE</text>')
 
     # ---------- right panel: SYSTEM.INFO ----------
     rx, ry, rw, rh = 360, 56, 516, 480
@@ -200,7 +292,7 @@ def build():
     a('</svg>')
     with open("card.svg", "w", encoding="utf-8") as f:
         f.write("\n".join(o))
-    print("wrote card.svg,", len(pts), "points")
+    print(f"wrote card.svg: {N} visuals, {total_pts} points")
 
 if __name__ == "__main__":
     build()
