@@ -20,7 +20,6 @@ INFO = [
     ("Research", "Edge AI / TinyML review paper"),
     ("Status", "Open to collaborate"),
 ]
-divider()
 FOCUS = "ML . Backend Engg . Applied AI . Agentic AI"
 CONTACT = [
     ("Mail", "nadiukrithik37@gmail.com"),
@@ -289,7 +288,7 @@ def build():
         else:
             row(*item)
     row("Focus", FOCUS)
-    y += 10
+    divider()
     for k, v in CONTACT:
         row(f"Grid.{k}", v)
 
