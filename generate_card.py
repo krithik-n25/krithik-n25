@@ -1,28 +1,37 @@
-import os, json, html, urllib.request
-from datetime import date
+import os, json, html, random, urllib.request
+from datetime import date, datetime, timezone
 from PIL import Image, ImageOps
 
 # ---------- edit this block ----------
 USERNAME = "krithik-n25"
-START = date(2024, 8, 1)          # your "uptime" start, pick any date
+START = date(2024, 8, 1)          # uptime start, pick any date
 PHOTO = "photo.png"               # crop tight on your face
+INVERT = False                    # set True if your photo background is light
+CITY, TZ = "Ahmedabad", "UTC+5:30"
 INFO = [
+    ("Subject", "Krithik Naidu"),
     ("Role", "CSE Student"),
+    ("Location", "Ahmedabad, Gujarat"),
     ("Education", "B.Tech CSE"),
-    ("Location", "Ahmedabad/Gujarat"),
-    ("Language", "Python ,Javascript"),
+    ("Language", "Python, JavaScript"),
 ]
-FOCUS = "ML. Backend Engg. Applied AI. Agentic AI"
+FOCUS = "ML . Backend . Applied AI . Agentic AI"
 CONTACT = [
-    ("GitHub", f"github.com/{USERNAME}"),
-    ("LinkedIn", "linkedin.com/in/krithik-naidu-579400350/"),
-    ("Email", "nadiukrithik37@gmail.com"),
+    ("Mail", "nadiukrithik37@gmail.com"),
+    ("LinkedIn", "/in/krithik-naidu-579400350"),
+    ("GitHub", USERNAME),
 ]
 # --------------------------------------
 
-W, H = 900, 540
-CYAN, ORANGE, TEXT, DIM = "#4fd1c5", "#f0883e", "#c9d1d9", "#8b949e"
+W, H = 900, 560
+BG, PANEL, LINE = "#0b1220", "#0d1526", "#1c2940"
+CYAN, DIMT, WHITE, AMBER, GREEN, RED = "#22d3ee", "#6b7a90", "#f1f5f9", "#fbbf24", "#34d399", "#ff5f57"
+DOT = "#a5e8f7"
+MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 TOKEN = os.environ.get("GITHUB_TOKEN")
+NOW = datetime.now(timezone.utc)
+
+COLS, ROWS, PITCH = 100, 115, 3   # dot grid, 300 x 345 px
 
 def api(path):
     headers = {"Accept": "application/vnd.github+json", "User-Agent": "profile-card"}
@@ -43,8 +52,7 @@ def get_stats():
                 break
             page += 1
         commits = api(f"/search/commits?q=author:{USERNAME}&per_page=1")["total_count"]
-        return dict(Repos=user["public_repos"], Stars=stars,
-                    Commits=commits, Followers=user["followers"])
+        return dict(Repos=user["public_repos"], Stars=stars, Commits=commits, Followers=user["followers"])
     except Exception as e:
         print("stats failed:", e)
         return dict(Repos="n/a", Stars="n/a", Commits="n/a", Followers="n/a")
@@ -58,100 +66,141 @@ def uptime():
     if m < 0:
         y -= 1
         m += 12
-    return f"{y} year{'s' if y != 1 else ''}, {m} month{'s' if m != 1 else ''}, {d} day{'s' if d != 1 else ''}"
+    s = lambda n, w: f"{n} {w}{'' if n == 1 else 's'}"
+    return f"{s(y, 'year')}, {s(m, 'month')}, {s(d, 'day')}"
 
-def ascii_art(cols=64):
+def dither_points(seed):
+    """Floyd-Steinberg dithering with serpentine scan. Bright pixels become dots.
+    A small random threshold jitter, seeded per run, makes every regeneration differ."""
     img = Image.open(PHOTO).convert("L")
     img = ImageOps.autocontrast(img, cutoff=2)
-    ratio = 1.15  # height / width of the crop
     w, h = img.size
-    ch = min(h, int(w * ratio))
-    cw = int(ch / ratio)
-    left, top = (w - cw) // 2, max(0, (h - ch) // 3)
-    img = img.crop((left, top, left + cw, top + ch))
-    rows = int(cols * ratio * 0.5)
-    img = img.resize((cols, rows))
-    ramp = " .:-=+*#%@"
-    return ["".join(ramp[img.getpixel((x, y)) * len(ramp) // 256] for x in range(cols))
-            for y in range(rows)]
+    target = ROWS / COLS
+    ch = min(h, int(w * target))
+    cw = int(ch / target)
+    left, top = (w - cw) // 2, max(0, (h - ch) // 4)
+    img = img.crop((left, top, left + cw, top + ch)).resize((COLS, ROWS), Image.LANCZOS)
+    px = [[float(img.getpixel((x, y))) for x in range(COLS)] for y in range(ROWS)]
+    if INVERT:
+        px = [[255.0 - v for v in row] for row in px]
+    rng = random.Random(seed)
+    pts = []
+    for y in range(ROWS):
+        forward = y % 2 == 0
+        d = 1 if forward else -1
+        for x in (range(COLS) if forward else range(COLS - 1, -1, -1)):
+            old = px[y][x]
+            new = 255.0 if old > 127.5 + rng.uniform(-25, 25) else 0.0
+            err = old - new
+            if new:
+                pts.append((x, y))
+            for dx, dy, f in ((d, 0, 7 / 16), (-d, 1, 3 / 16), (0, 1, 5 / 16), (d, 1, 1 / 16)):
+                xx, yy = x + dx, y + dy
+                if 0 <= xx < COLS and 0 <= yy < ROWS:
+                    px[yy][xx] += err * f
+    return pts, rng
 
 def esc(s):
-    return html.escape(s, quote=False)
+    return html.escape(str(s), quote=False)
 
 def build():
     stats = get_stats()
-    art = ascii_art()
-    out = []
-    a = out.append
-    a(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
-      f'font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">')
-    a('<defs><linearGradient id="glow" x1="0" x2="1"><stop offset="0" stop-color="#4fd1c5" stop-opacity="0"/>'
-      '<stop offset="0.5" stop-color="#4fd1c5"/><stop offset="1" stop-color="#4fd1c5" stop-opacity="0"/>'
+    seed = int(NOW.strftime("%Y%m%d%H"))
+    pts, rng = dither_points(seed)
+    o = []
+    a = o.append
+
+    a(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{MONO}">')
+    a(f'''<style>
+.g0,.g1,.g2,.g3{{animation:tw 3.4s ease-in-out infinite}}
+.g1{{animation-delay:.85s}}.g2{{animation-delay:1.7s}}.g3{{animation-delay:2.55s}}
+@keyframes tw{{0%,100%{{opacity:.95}}50%{{opacity:.22}}}}
+.live{{animation:blink 1.3s ease-in-out infinite}}
+@keyframes blink{{0%,100%{{opacity:1}}50%{{opacity:.15}}}}
+.sweep{{animation:sweep 5s linear infinite}}
+@keyframes sweep{{0%{{transform:translateY(-16px);opacity:0}}12%{{opacity:1}}88%{{opacity:1}}100%{{transform:translateY({ROWS * PITCH}px);opacity:0}}}}
+</style>''')
+    a('<defs><linearGradient id="trail" x1="0" y1="0" x2="0" y2="1">'
+      f'<stop offset="0" stop-color="{CYAN}" stop-opacity="0"/><stop offset="1" stop-color="{CYAN}" stop-opacity="0.28"/>'
       '</linearGradient></defs>')
-    a(f'<rect width="{W}" height="{H}" rx="10" fill="#0d1117" stroke="#30363d"/>')
+    a(f'<rect width="{W}" height="{H}" rx="12" fill="{BG}" stroke="#1e2a3f"/>')
 
-    # left panel: portrait
-    px, py, pw, ph = 40, 40, 350, 460
-    a(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="#0a0e13" stroke="#1f2a33"/>')
-    cell_w = (pw - 20) / len(art[0])
-    line_h = cell_w * 2
-    top = py + (ph - line_h * len(art)) / 2 + line_h
-    for i, line in enumerate(art):
-        y = top + i * line_h
-        a(f'<text x="{px + 10}" y="{y:.1f}" font-size="{cell_w / 0.6:.2f}" fill="{DIM}" '
-          f'textLength="{pw - 20}" lengthAdjust="spacing" xml:space="preserve">{esc(line)}</text>')
-    scan = py + ph * 0.82
-    a(f'<rect x="{px}" y="{scan:.0f}" width="{pw}" height="2" fill="{CYAN}" opacity="0.7"/>')
-    for cx, cy, dx, dy in [(px, py, 1, 1), (px + pw, py, -1, 1), (px, py + ph, 1, -1), (px + pw, py + ph, -1, -1)]:
-        a(f'<path d="M{cx + 12 * dx} {cy} L{cx} {cy} L{cx} {cy + 12 * dy}" stroke="{CYAN}" fill="none"/>')
+    # title bar
+    for cx, c in ((28, "#ff5f57"), (48, "#febc2e"), (68, "#28c840")):
+        a(f'<circle cx="{cx}" cy="26" r="6" fill="{c}"/>')
+    a(f'<text x="{W // 2}" y="30" font-size="11" fill="{DIMT}" text-anchor="middle">profile.sh --live</text>')
 
-    # right panel
-    rx0, rx1 = 430, W - 40
-    a(f'<rect x="{rx0 - 15}" y="{py}" width="{rx1 - rx0 + 30}" height="{ph}" rx="8" fill="none" stroke="#21262d"/>')
-    y = py + 34
-    fs, cw_char = 15, 9.0
+    # ---------- left panel: VISUAL.MAP ----------
+    lx, ly, lw, lh = 24, 56, 320, 480
+    a(f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" rx="4" fill="{PANEL}" stroke="{LINE}"/>')
+    a(f'<text x="{lx + 12}" y="{ly + 22}" font-size="11" font-weight="700" fill="{CYAN}" letter-spacing="1">VISUAL.MAP</text>')
+    a(f'<text x="{lx + lw - 12}" y="{ly + 22}" font-size="9" fill="{DIMT}" text-anchor="end">{COLS * PITCH}x{ROWS * PITCH} / 1-BIT</text>')
+    a(f'<line x1="{lx}" y1="{ly + 34}" x2="{lx + lw}" y2="{ly + 34}" stroke="{LINE}"/>')
 
-    def header(title):
+    ax0, ay0, ax1, ay1 = lx + 10, ly + 44, lx + lw - 10, ly + lh - 30
+    dx0 = ax0
+    dy0 = ay0 + ((ay1 - ay0) - ROWS * PITCH) // 2
+    groups = [[], [], [], []]
+    for x, y in pts:
+        groups[rng.randrange(4)].append(f"M{dx0 + x * PITCH} {dy0 + y * PITCH}h1.8v1.8h-1.8z")
+    for i, g in enumerate(groups):
+        a(f'<path class="g{i}" fill="{DOT}" d="{"".join(g)}"/>')
+    a(f'<clipPath id="clip"><rect x="{ax0}" y="{dy0}" width="{COLS * PITCH}" height="{ROWS * PITCH}"/></clipPath>')
+    a(f'<g clip-path="url(#clip)"><g class="sweep">'
+      f'<rect x="{ax0}" y="{dy0 - 14}" width="{COLS * PITCH}" height="14" fill="url(#trail)"/>'
+      f'<rect x="{ax0}" y="{dy0}" width="{COLS * PITCH}" height="1.5" fill="{CYAN}" opacity="0.8"/>'
+      f'</g></g>')
+    for cx, cy, sx, sy in ((ax0, ay0, 1, 1), (ax1, ay0, -1, 1), (ax0, ay1, 1, -1), (ax1, ay1, -1, -1)):
+        a(f'<path d="M{cx + 12 * sx} {cy}L{cx} {cy}L{cx} {cy + 12 * sy}" stroke="{CYAN}" stroke-opacity="0.6" fill="none"/>')
+    a(f'<text x="{lx + 12}" y="{ly + lh - 12}" font-size="9" fill="{DIMT}">PTS {len(pts)} · FS/SERPENTINE</text>')
+
+    # ---------- right panel: SYSTEM.INFO ----------
+    rx, ry, rw, rh = 360, 56, 516, 480
+    a(f'<rect x="{rx}" y="{ry}" width="{rw}" height="{rh}" rx="4" fill="{PANEL}" stroke="{LINE}"/>')
+    a(f'<text x="{rx + 12}" y="{ry + 22}" font-size="11" font-weight="700" fill="{CYAN}" letter-spacing="1">SYSTEM.INFO</text>')
+    pill_w = 12 + 8 * (len(USERNAME) + 1)
+    px0 = rx + rw - 12 - pill_w
+    a(f'<rect x="{px0}" y="{ry + 8}" width="{pill_w}" height="22" rx="11" fill="#12304a"/>')
+    a(f'<text x="{px0 + pill_w / 2}" y="{ry + 23}" font-size="11" font-weight="700" fill="{CYAN}" text-anchor="middle">@{esc(USERNAME)}</text>')
+    a(f'<text x="{px0 - 12}" y="{ry + 23}" font-size="9" font-weight="700" fill="{RED}" text-anchor="end">LIVE</text>')
+    a(f'<circle class="live" cx="{px0 - 46}" cy="{ry + 19.5}" r="3" fill="{RED}"/>')
+    a(f'<line x1="{rx}" y1="{ry + 34}" x2="{rx + rw}" y2="{ry + 34}" stroke="{LINE}"/>')
+
+    kx, vx = rx + 14, rx + rw - 14
+    cw = 7.9
+    y = ry + 62
+
+    def row(key, val, color=WHITE):
         nonlocal y
-        a(f'<text x="{rx0}" y="{y}" font-size="{fs}" fill="{CYAN}">{esc(title)}</text>')
-        lx = rx0 + (len(title) + 1) * cw_char
-        a(f'<line x1="{lx}" y1="{y - 5}" x2="{rx1}" y2="{y - 5}" stroke="{CYAN}" stroke-width="1"/>')
-        y += 26
-
-    def row(key, val, color=TEXT):
-        nonlocal y
-        a(f'<text x="{rx0}" y="{y}" font-size="{fs}" fill="{TEXT}">{esc(key)}</text>')
-        a(f'<text x="{rx1}" y="{y}" font-size="{fs}" fill="{color}" text-anchor="end">{esc(str(val))}</text>')
-        ds = rx0 + (len(key) + 1) * cw_char
-        de = rx1 - (len(str(val)) + 2) * cw_char
+        val = str(val)
+        a(f'<text x="{kx}" y="{y}" font-size="12" fill="{DIMT}">{esc(key)}</text>')
+        a(f'<text x="{vx}" y="{y}" font-size="12" font-weight="700" fill="{color}" text-anchor="end">{esc(val)}</text>')
+        ds, de = kx + len(key) * cw + 10, vx - len(val) * cw - 10
         if de > ds:
-            a(f'<line x1="{ds:.0f}" y1="{y - 3}" x2="{de:.0f}" y2="{y - 3}" stroke="{DIM}" '
-              f'stroke-dasharray="1 5" stroke-linecap="round" stroke-width="1.5"/>')
-        y += 22
+            a(f'<line x1="{ds:.0f}" y1="{y - 3}" x2="{de:.0f}" y2="{y - 3}" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>')
+        y += 25
 
-    header(f"{USERNAME}@github")
-    row("Uptime", uptime(), ORANGE)
+    row("Uptime", uptime(), AMBER)
     for k, v in INFO:
         row(k, v)
-    y += 8
-    header("Focus")
-    a(f'<text x="{rx0}" y="{y}" font-size="{fs}" fill="{TEXT}">{esc(FOCUS)}</text>')
-    y += 32
-    header("Contact")
+    row("Focus", FOCUS)
+    y += 10
     for k, v in CONTACT:
-        row(k, v)
-    y += 8
-    header("GitHub Stats")
-    row("Repos", stats["Repos"], ORANGE)
-    row("Stars", stats["Stars"], ORANGE)
-    row("Commits", stats["Commits"], ORANGE)
-    row("Followers", stats["Followers"], ORANGE)
+        row(f"Grid.{k}", v)
+    y += 10
+    for k in ("Repos", "Stars", "Commits", "Followers"):
+        row(f"Git.{k}", stats[k], AMBER)
 
-    a(f'<rect x="40" y="{H - 24}" width="{W - 80}" height="2" fill="url(#glow)"/>')
+    fy = ry + rh - 30
+    a(f'<line x1="{rx + 12}" y1="{fy}" x2="{rx + rw - 12}" y2="{fy}" stroke="{LINE}"/>')
+    a(f'<circle class="live" cx="{kx + 3}" cy="{fy + 15}" r="2.5" fill="{GREEN}"/>')
+    a(f'<text x="{kx + 12}" y="{fy + 18}" font-size="9" fill="{GREEN}">ALL SYSTEMS NOMINAL</text>')
+    a(f'<text x="{vx}" y="{fy + 18}" font-size="9" fill="{DIMT}" text-anchor="end">SYNC {NOW:%d %b %H:%M} UTC · {esc(TZ)} · {esc(CITY.upper())} NODE</text>')
+
     a('</svg>')
     with open("card.svg", "w", encoding="utf-8") as f:
-        f.write("\n".join(out))
-    print("wrote card.svg")
+        f.write("\n".join(o))
+    print("wrote card.svg,", len(pts), "points")
 
 if __name__ == "__main__":
     build()
