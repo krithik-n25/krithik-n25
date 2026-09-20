@@ -18,7 +18,10 @@ I'm a Computer Science student building practical AI systems, with a focus on ag
 
 ## 🚀 Stats
 
-[![GitHub Stats](https://github-stats-extended.vercel.app/api?username=krithik-n25&rank_icon=github&show_icons=true&include_all_commits=true&theme=nightowl)](https://github-stats-extended.vercel.app/api?username=krithik-n25&rank_icon=github&show_icons=true&include_all_commits=true&theme=nightowl)              [![GitHub Stats](https://github-stats-extended.vercel.app/api/top-langs?username=krithik-n25&layout=donut&langs_count=3&theme=nightowl)](https://github-stats-extended.vercel.app/api/top-langs?username=krithik-n25&layout=donut&langs_count=3&theme=nightowl)
+<div align="center">
+  <img height="190" src="https://github-stats-extended.vercel.app/api?username=krithik-n25&rank_icon=github&show_icons=true&include_all_commits=true&theme=nightowl" />
+  <img height="190" src="https://github-stats-extended.vercel.app/api/top-langs?username=krithik-n25&layout=donut&langs_count=3&theme=nightowl" />
+</div>
 
 <hr>
 
