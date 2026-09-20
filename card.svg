@@ -69,8 +69,8 @@
 <circle class="live" cx="710" cy="75.5" r="3" fill="#ff5f57"/>
 <line x1="360" y1="90" x2="876" y2="90" stroke="#1c2940"/>
 <text x="374" y="118" font-size="12" fill="#6b7a90">Uptime</text>
-<text x="862" y="118" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="end">2 years, 1 month, 19 days</text>
-<line x1="431" y1="115" x2="654" y2="115" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
+<text x="862" y="118" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="end">2 years, 4 months, 10 days</text>
+<line x1="431" y1="115" x2="647" y2="115" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
 <text x="374" y="143" font-size="12" fill="#6b7a90">Subject</text>
 <text x="862" y="143" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="end">Krithik Naidu</text>
 <line x1="439" y1="140" x2="749" y2="140" stroke="#2a3a55" stroke-dasharray="1 4" stroke-linecap="round"/>
@@ -110,5 +110,5 @@
 <line x1="372" y1="506" x2="864" y2="506" stroke="#1c2940"/>
 <circle class="live" cx="377" cy="521" r="2.5" fill="#34d399"/>
 <text x="386" y="524" font-size="9" fill="#34d399">ALL SYSTEMS NOMINAL</text>
-<text x="862" y="524" font-size="9" fill="#6b7a90" text-anchor="end">SYNC 20 Sep 07:15 UTC · UTC+5:30 · AHMEDABAD NODE</text>
+<text x="862" y="524" font-size="9" fill="#6b7a90" text-anchor="end">SYNC 20 Sep 07:16 UTC · UTC+5:30 · AHMEDABAD NODE</text>
 </svg>
