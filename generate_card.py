@@ -10,12 +10,12 @@ INFO = [
     ("Role", "CSE Student"),
     ("Education", "B.Tech CSE"),
     ("Location", "Ahmedabad/Gujarat"),
-    ("Language", "Python","javascript"),
+    ("Language", "Python ,Javascript"),
 ]
-FOCUS = "Machine Learning, Backend Engg , Applied AI, Agentic AI"
+FOCUS = "ML. Backend Engg. Applied AI. Agentic AI"
 CONTACT = [
     ("GitHub", f"github.com/{USERNAME}"),
-    ("LinkedIn", "https://www.linkedin.com/in/krithik-naidu-579400350/"),
+    ("LinkedIn", "linkedin.com/in/krithik-naidu-579400350/"),
     ("Email", "nadiukrithik37@gmail.com"),
 ]
 # --------------------------------------
