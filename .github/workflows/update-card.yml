@@ -12,11 +12,17 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-profile-card-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Sync with latest main
+        run: git pull --rebase origin main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
